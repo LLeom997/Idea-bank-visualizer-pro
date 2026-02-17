@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IDEA Bank Visualizer</title>
     
-    <!-- Tailwind CDN for browser-side processing -->
+    <!-- Tailwind Play CDN for runtime utility class support -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <script>
       tailwind.config = {
@@ -48,13 +48,13 @@
                 <div style="width:64px;height:64px;background:#fee2e2;color:#ef4444;border-radius:20px;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;">
                   <i class="fa-solid fa-triangle-exclamation" style="font-size:24px;"></i>
                 </div>
-                <h2 style="color:#1e293b;font-size:24px;font-weight:800;margin-bottom:0.5rem;letter-spacing:-0.025em;">Initialization Failed</h2>
-                <p style="color:#64748b;font-size:14px;margin-bottom:2rem;line-height:1.6;">The IDEA interface could not load. This usually happens when the browser fails to fetch core modules.</p>
+                <h2 style="color:#1e293b;font-size:24px;font-weight:800;margin-bottom:0.5rem;letter-spacing:-0.025em;">System Load Failed</h2>
+                <p style="color:#64748b;font-size:14px;margin-bottom:2rem;line-height:1.6;">A version mismatch or dependency conflict prevented the application from starting.</p>
                 <div style="font-family:monospace;font-size:11px;color:#94a3b8;background:#f8fafc;padding:1rem;border-radius:1rem;margin-bottom:2rem;text-align:left;border:1px solid #f1f5f9;overflow:hidden;text-overflow:ellipsis;">
                   Error: ${msg}
                 </div>
-                <button onclick="location.reload()" style="width:100%;background:#6366f1;color:white;border:none;padding:1rem;border-radius:1rem;font-weight:700;cursor:pointer;transition:all 0.2s;box-shadow:0 10px 15px -3px rgba(99,102,241,0.3);">
-                  Retry System Load
+                <button onclick="location.reload()" style="width:100%;background:#6366f1;color:white;border:none;padding:1rem;border-radius:1rem;font-weight:700;cursor:pointer;transition:all 0.2s;">
+                  Reload Interface
                 </button>
               </div>
             </div>`;
