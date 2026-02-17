@@ -4,16 +4,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IDEA Bank Visualizer</title>
+    <title>Idea Bank Pro | Enterprise Intelligence</title>
     
-    <!-- Tailwind Play CDN for runtime utility class support -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
-              sans: ['Poppins', 'sans-serif'],
+              sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
             },
           },
         },
@@ -22,7 +21,7 @@
     
     <link rel="stylesheet" href="./globals.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <script type="importmap">
 {
@@ -37,30 +36,6 @@
   }
 }
 </script>
-    
-    <script>
-      window.onerror = function(msg, url, line, col, error) {
-        const root = document.getElementById('root');
-        if (root && root.innerHTML === "") {
-          root.innerHTML = `
-            <div style="height:100vh;display:flex;align-items:center;justify-content:center;background:#f8fafc;font-family:sans-serif;padding:20px;">
-              <div style="background:white;padding:2.5rem;border-radius:2rem;box-shadow:0 25px 50px -12px rgba(0,0,0,0.1);max-width:450px;text-align:center;border:1px solid #e2e8f0;">
-                <div style="width:64px;height:64px;background:#fee2e2;color:#ef4444;border-radius:20px;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;">
-                  <i class="fa-solid fa-triangle-exclamation" style="font-size:24px;"></i>
-                </div>
-                <h2 style="color:#1e293b;font-size:24px;font-weight:800;margin-bottom:0.5rem;letter-spacing:-0.025em;">System Load Failed</h2>
-                <p style="color:#64748b;font-size:14px;margin-bottom:2rem;line-height:1.6;">A version mismatch or dependency conflict prevented the application from starting.</p>
-                <div style="font-family:monospace;font-size:11px;color:#94a3b8;background:#f8fafc;padding:1rem;border-radius:1rem;margin-bottom:2rem;text-align:left;border:1px solid #f1f5f9;overflow:hidden;text-overflow:ellipsis;">
-                  Error: ${msg}
-                </div>
-                <button onclick="location.reload()" style="width:100%;background:#6366f1;color:white;border:none;padding:1rem;border-radius:1rem;font-weight:700;cursor:pointer;transition:all 0.2s;">
-                  Reload Interface
-                </button>
-              </div>
-            </div>`;
-        }
-      };
-    </script>
   </head>
   <body>
     <div id="root"></div>

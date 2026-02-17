@@ -81,7 +81,7 @@ const App: React.FC = () => {
           plant: normalize(row["PLANT"]),
           status: normalize(row["FINAL STATUS"]),
           date: parsedDate,
-          submitter: (row["REQUESTER EMAIL"] || 'anonymous@enterprise.com').trim(),
+          submitter: (row["REQUESTER EMAIL"] || 'system@enterprise.com').trim(),
           scopingLeader: normalize(row["SCOPING LEADER"]),
           savings: savings,
           link: (row["LINK"] || '').trim()
@@ -111,30 +111,30 @@ const App: React.FC = () => {
       if (processed.length === 0) throw new Error('No valid data found in spreadsheet.');
       setData(processed);
     } catch (err: any) {
-      setError(err.message || 'An unexpected error occurred');
+      setError(err.message || 'An unexpected error occurred during import.');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex flex-col overflow-hidden bg-slate-50 font-normal">
+    <div className="min-h-screen flex flex-col overflow-hidden bg-slate-50 font-sans">
       <Header />
-      <main className="flex-grow flex flex-col h-[calc(100vh-64px)] overflow-hidden">
+      <main className="flex-grow flex flex-col h-[calc(100vh-56px)] overflow-hidden">
         {!data.length && !loading && (
           <div className="flex-grow flex items-center justify-center p-4">
-            <div className="max-w-md w-full bg-white rounded-[2rem] shadow-2xl p-10 border border-slate-200 text-center animate-in fade-in zoom-in duration-300">
-              <div className="w-16 h-16 bg-indigo-50 text-indigo-600 rounded-3xl flex items-center justify-center mx-auto mb-8">
-                <i className="fa-solid fa-cloud-arrow-down text-3xl"></i>
+            <div className="max-w-sm w-full bg-white rounded-2xl shadow-xl p-10 border border-slate-200 text-center animate-fade-in">
+              <div className="w-14 h-14 bg-slate-50 text-slate-900 rounded-xl flex items-center justify-center mx-auto mb-6 border border-slate-100 shadow-sm">
+                <i className="fa-solid fa-database text-xl"></i>
               </div>
-              <h2 className="text-3xl font-semibold text-slate-800 mb-2 tracking-tighter">Idea Intelligence</h2>
-              <p className="text-slate-500 mb-8 text-sm font-normal leading-relaxed">
-                Unlock cross-platform engineering insights by connecting your Google Sheets data.
+              <h2 className="text-xl font-semibold text-slate-900 mb-2 tracking-tight">Connect Repository</h2>
+              <p className="text-slate-500 mb-8 text-xs font-medium leading-relaxed">
+                Analyze engineering cost savings and performance across subsystems using your centralized spreadsheet data.
               </p>
               <UrlInput onSubmit={handleUrlSubmit} isLoading={loading} />
               {error && (
-                <div className="mt-8 p-4 bg-rose-50 border border-rose-100 text-rose-600 rounded-2xl text-xs font-semibold flex items-center gap-3">
-                  <i className="fa-solid fa-circle-exclamation"></i>
+                <div className="mt-6 p-3 bg-rose-50 border border-rose-100 text-rose-600 rounded-lg text-[10px] font-semibold flex items-center gap-2">
+                  <i className="fa-solid fa-triangle-exclamation"></i>
                   {error}
                 </div>
               )}
@@ -143,14 +143,11 @@ const App: React.FC = () => {
         )}
         
         {loading && (
-          <div className="flex-grow flex flex-col items-center justify-center">
-            <div className="relative mb-6">
-              <div className="animate-spin rounded-full h-12 w-12 border-4 border-slate-100 border-t-indigo-600"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <i className="fa-solid fa-gear text-indigo-600 text-[10px] animate-pulse"></i>
-              </div>
+          <div className="flex-grow flex flex-col items-center justify-center animate-fade-in">
+            <div className="flex items-center gap-3">
+              <div className="animate-spin rounded-full h-4 w-4 border-2 border-slate-200 border-t-slate-900"></div>
+              <p className="text-slate-500 font-semibold uppercase tracking-widest text-[10px]">Processing Environment...</p>
             </div>
-            <p className="text-slate-400 font-medium uppercase tracking-[0.3em] text-[10px]">Processing Data...</p>
           </div>
         )}
 
